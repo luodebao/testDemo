@@ -1,7 +1,7 @@
 import pymysql
 # 引入readConfig的包
 from conf import readConfig
-
+import django
 
 # import json
 
@@ -39,7 +39,7 @@ class ConnectMysql():
         return data
 
     # 查询的sql添加
-    select_sql = "select score  from student,sc,course where student.sid = sc.sid and sc.cid = course.cid and cname = 'physics' "
+    select_sql = "select *  from student "
     print(select_db(select_sql))
 
     def insert_db(insert_sql):
@@ -67,7 +67,7 @@ class ConnectMysql():
             db.close()
 
     # 插入的sql添加
-    insert_sql = "INSERT INTO student VALUES('4','利好','1997-07-05','英语'，'99')"  # INSERT INTO student VALUES[('4','lisi','7','物理','8'),('5','lisi33','75','化学','78')]
+    insert_sql = ""  # INSERT INTO student VALUES[('4','lisi','7','物理','8'),('5','lisi33','75','化学','78')]
     print(insert_db(insert_sql))
 
     # 更新数据库
@@ -130,6 +130,5 @@ class ConnectMysql():
     print(delete_db(delete_sql))
 
 
-if __name__ == 'main':
-    select_sql = ConnectMysql.select_db(
-        "select score  from student,sc,course where student.sid = sc.sid and sc.cid = course.cid and cname = 'physics'")
+# if __name__ == 'main':
+#     select_sql = ConnectMysql.select_db("select * from ams_user")
